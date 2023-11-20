@@ -10,7 +10,6 @@ const IndexScreen = (props) => {
 
     return (
         <View>
-            <Button title='Add Blog Post' onPress = { addBlogPost } />
             <FlatList 
                 data={state}
                 keyExtractor={(blogPost) => blogPost.title}
@@ -18,7 +17,7 @@ const IndexScreen = (props) => {
                     return (
                         <TouchableOpacity onPress={()=> navigation.navigate('Show', {id: item.id})}>
                             <View style={styles.row}>
-                                <Text style={styles.title}>{item.title}</Text>
+                                <Text style={styles.title}>{item.title} - {item.id}</Text>
                                 <TouchableOpacity onPress={() => deleteBlogPost(item.id)}>
                                     <Feather name="trash" style={styles.icon} />
                                 </TouchableOpacity>
@@ -32,6 +31,16 @@ const IndexScreen = (props) => {
            
         </View>
     )
+}
+
+IndexScreen.navigationOptions = ({navigation}) => {
+    return {
+        headerRight: () => (
+            <TouchableOpacity onPress={() => navigation.navigate('Create')}>
+                <Feather name='plus' size={30}></Feather>
+            </TouchableOpacity>
+        )
+    }
 }
 const styles = StyleSheet.create({
     row:{
