@@ -11,9 +11,11 @@ const CreateScreen = ({navigation}) => {
         })
     }
 
-    return <BlogPostForm onSubmit={(title, content) => {
-        handleSaveBlog(title, content);
-    }} />
+    return <BlogPostForm 
+                onSubmit={(title, content) => {
+                    handleSaveBlog(title, content);
+                }} 
+            />
 }
 
 const styles = StyleSheet.create({
