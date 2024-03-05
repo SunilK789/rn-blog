@@ -10,7 +10,9 @@ const EditScreen = ({navigation}) => {
     const blogPost = state.find((b) => b.id === blogId);
 
     const handleSaveBlog = (id, title, content) => {
-        editBlogPost(id, title, content);
+        editBlogPost(id, title, content, () => {
+            navigation.navigate('Index');
+        });
     }
 
     return (
