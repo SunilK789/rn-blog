@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { Context } from '../context/BlogContext';
-import { Button, StyleSheet, Text, TextInput, View } from 'react-native';
+import { Button, StyleSheet, View } from 'react-native';
+import { Input, Text } from '@rneui/themed';
 
 const BlogPostForm = ({onSubmit, initialValues}) => {
     const [title, setTitle] = useState(initialValues.title);
@@ -9,9 +10,10 @@ const BlogPostForm = ({onSubmit, initialValues}) => {
     return (
          <View>
             <Text style={styles.label}>Enter Title:</Text>
-            <TextInput style={styles.input} value={title} onChangeText = {(text)=> setTitle(text)}></TextInput>
+
+            <Input placeholder='title' style={styles.input} value={title} onChangeText = {(text)=> setTitle(text)}></Input>
             <Text style={styles.label}>Enter Content:</Text>
-            <TextInput style={styles.input} value={content} onChangeText = {(text)=> setContent(text)}></TextInput>
+            <Input placeholder='content' style={styles.input} value={content} onChangeText = {(text)=> setContent(text)}></Input>
 
             <Button 
                 title="Save Blog Post" 
@@ -30,14 +32,14 @@ BlogPostForm.defaultProps = {
 
 const styles = StyleSheet.create({
     input:{
-        borderWidth: 1,
-        borderColor: 'black',
-        fontSize: 18,
-        marginBottom: 5
+        // borderWidth: 1,
+        // borderColor: 'black',
+        // fontSize: 18,
+        // marginBottom: 5
     },
     label:{
-        marginBottom: 5,
-        fontSize: 20
+        margin: 10,
+        fontSize: 16
     }
 });
 

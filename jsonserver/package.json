@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "db": "json-server -w db.json",
-    "tunnel": "ngrok http 3000",
+    "db": "json-server -w db.json -p 3001",
+    "tunnel": "ngrok http 3001",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
